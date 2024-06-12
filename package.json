@@ -39,7 +39,7 @@
     "react-dom": "^15.6.1",
     "react-joyride": "1.11.4",
     "react-router-dom": "^4.1.2",
-    "react-scripts": "^1.1.4",
+    "react-scripts": "^2.1.4",
     "react-table": "6.5.1",
     "react-tabs": "^2.2.2",
     "redux": "^3.7.2",
@@ -65,15 +65,12 @@
   "devDependencies": {
     "babel-cli": "6.24.1",
     "babel-core": "6.26.0",
-    "babel-eslint": "7.2.3",
-    "babel-loader": "7.1.2",
     "babel-minify": "^0.4.0",
     "babel-plugin-transform-object-rest-spread": "6.26.0",
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-env": "1.6.1",
     "babel-runtime": "6.18.0",
     "download": "^6.2.5",
-    "eslint": "^4.5.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-config-standard-react": "^5.0.0",
     "eslint-plugin-import": "^2.7.0",
@@ -96,5 +93,11 @@
       "it",
       "expect"
     ]
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
