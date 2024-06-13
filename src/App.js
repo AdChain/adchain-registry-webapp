@@ -8,7 +8,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
+import CSSTransitionGroup from "react-transition-group";
 import MainSidebar from "./components/sidebar/MainSidebar";
 import MainContainer from "./components/MainContainer";
 import RegistryWalkthrough from "./components/registry_guide/RegistryWalkthrough";

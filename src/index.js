@@ -1,30 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import registerServiceWorker from './registerServiceWorker'
-import App from './App'
-import registry from './services/registry'
-import plcr from './services/plcr'
-import DocumentLoadingComponent from './components/DocumentLoadingComponent'
-import parameterizer from './services/parameterizer'
-import token from './services/token'
-import store from 'store'
-import isMobile from 'is-mobile'
-import { getPermissions } from './services/provider'
+import React from "react";
+import ReactDOM from "react-dom";
+import registerServiceWorker from "./registerServiceWorker";
+import App from "./App";
+import registry from "./services/registry";
+import plcr from "./services/plcr";
+import DocumentLoadingComponent from "./components/DocumentLoadingComponent";
+import parameterizer from "./services/parameterizer";
+import token from "./services/token";
+import store from "store";
+import isMobile from "is-mobile";
+import { getPermissions } from "./services/provider";
 
-import './index.css'
-require('dotenv').config()
+import "./index.css";
 
 async function init() {
-
-  let hasAcceptedMobile
+  let hasAcceptedMobile;
   try {
-    hasAcceptedMobile = store.get('hasAcceptedMobile')
+    hasAcceptedMobile = store.get("hasAcceptedMobile");
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
   if (isMobile() && !hasAcceptedMobile && !window.web3) {
-    ReactDOM.render(<DocumentLoadingComponent />, document.getElementById('root'))
-    return
+    ReactDOM.render(
+      <DocumentLoadingComponent />,
+      document.getElementById("root"),
+    );
+    return;
   }
 
   try {
@@ -33,25 +34,27 @@ async function init() {
       registry.init(),
       plcr.init(),
       parameterizer.init(),
-      token.init()
-    ])
-
+      token.init(),
+    ]);
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-  ReactDOM.render(<App />, document.getElementById('root'))
-  registerServiceWorker()
+  ReactDOM.render(<App />, document.getElementById("root"));
+  registerServiceWorker();
   // unregister()
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.web3) {
-    init()
-  } else {
-    // wait for metamask web3 to be injected
-    setTimeout(() => {
-      init()
-    }, 1e3)
-  }
-}, false
-)
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    if (window.web3) {
+      init();
+    } else {
+      // wait for metamask web3 to be injected
+      setTimeout(() => {
+        init();
+      }, 1e3);
+    }
+  },
+  false,
+);
